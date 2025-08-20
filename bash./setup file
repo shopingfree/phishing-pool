@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# CyberHawk Setup Fix Script
+echo "🔧 Fixing CyberHawk setup permissions..."
+
+# Check if setup.sh exists
+if [ ! -f "setup.sh" ]; then
+    echo "❌ setup.sh not found in current directory!"
+    echo "📁 Current directory: $(pwd)"
+    ls -la
+    exit 1
+fi
+
+# Check current permissions
+echo "📊 Current permissions:"
+ls -la setup.sh
+
+# Make executable
+echo "🔐 Making setup.sh executable..."
+chmod +x setup.sh
+
+# Verify permissions
+echo "✅ New permissions:"
+ls -la setup.sh | grep setup.sh
+
+# Check for Windows line endings
+if grep -q -U $'\x0D' setup.sh; then
+    echo "⚠️  Windows line endings detected. Fixing..."
+    sudo apt update
+    sudo apt install -y dos2unix
+    dos2unix setup.sh
+    echo "✅ Line endings fixed"
+fi
+
+# Test execution
+echo "🚀 Testing script execution..."
+if bash -n setup.sh; then
+    echo "✅ Script syntax is valid"
+    echo ""
+    echo "🎯 Now run the setup with:"
+    echo "   ./setup.sh"
+else
+    echo "❌ Script has syntax errors"
+    echo "📋 Checking for common issues..."
+    # Check first line
+    head -1 setup.sh
+fi
