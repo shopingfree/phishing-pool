@@ -1,0 +1,10 @@
+# requirements.txt for an advanced async network tool
+
+aiohttp>=3.8.0              # Async HTTP client/server framework
+asyncio>=3.4.3              # Asynchronous I/O (usually part of stdlib, but specified for clarity)
+scapy>=2.5.0                # Packet manipulation and network scanning
+dnspython>=2.2.0            # DNS toolkit
+netaddr>=0.8.0              # Network address manipulation
+pyOpenSSL>=22.1.0           # Python wrapper for OpenSSL
+cryptography>=3.4.0         # Cryptography library
+aiodns>=3.0.0               # Asynchronous DNS resolver
