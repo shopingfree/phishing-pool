@@ -1,0 +1,17 @@
+# Clone (download) a repository to your current directory
+git clone https://github.com/username/repository-name.git
+
+# Navigate into the downloaded directory
+cd repository-name
+
+# List the contents to see what you've downloaded
+ls -la
+
+# (Almost always) Look for a README.md file for instructions
+cat README.md
+
+# Often, you need to make a script executable before running it
+chmod +x somescript.py
+
+# Install Python dependencies (if it's a Python tool)
+pip3 install -r requirements.txt
